@@ -67,6 +67,14 @@ button:focus-visible {
   }
 }
 
+/* Definitive fix for background and layout issues */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #0f172a; /* Hex code for slate-900 */
+}
+
 /* Tailwind CSS Directives */
 @tailwind base;
 @tailwind components;
