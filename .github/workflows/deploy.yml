@@ -1,0 +1,31 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # รัน workflow นี้ทุกครั้งที่มีการ push ไปที่ branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 🌲
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # ใช้ Node.js เวอร์ชัน 18 LTS
+
+      - name: Install Dependencies 🔧
+        run: npm ci # ใช้ npm ci จะเร็วกว่าและปลอดภัยกว่า install ใน CI/CD
+
+      - name: Build Project 🏗️
+        run: npm run build # รันคำสั่ง build จาก package.json
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # โฟลเดอร์ที่ Vite build โปรเจกต์เสร็จแล้ว
