@@ -4,7 +4,7 @@ backend:
   branch: main
   auth_type: implicit
   # Replace this with your actual GitHub OAuth App Client ID
-  app_id: YOUR_GITHUB_CLIENT_ID
+  app_id: Ov23lidLZCzcyrNLB3rc
 
 # These folders must match where Vite builds and serves your images
 media_folder: "public/projects"
