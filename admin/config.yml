@@ -1,0 +1,48 @@
+backend:
+  name: github
+  repo: AnMayVaa/AnMayVaa.github.io
+  branch: main
+  auth_type: implicit
+  # Replace this with your actual GitHub OAuth App Client ID
+  app_id: YOUR_GITHUB_CLIENT_ID
+
+# These folders must match where Vite builds and serves your images
+media_folder: "public/projects"
+public_folder: "/projects"
+
+collections:
+  - name: "content"
+    label: "Content"
+    files:
+      - label: "Portfolio Data"
+        name: "data"
+        file: "src/content/data.json"
+        description: "Your main portfolio content"
+        fields:
+          - label: "About Text"
+            name: "aboutText"
+            widget: "text"
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field:
+                  name: "tag"
+                  label: "Tag"
+                  widget: "string"
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                required: false
+              - label: "Source Code Link"
+                name: "sourceCodeLink"
+                widget: "string"
